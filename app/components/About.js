@@ -12,18 +12,18 @@ export default function About() {
           <h2 className="text-2xl font-extrabold text-yellow-500 uppercase mb-4">
             About Us
           </h2>
-          <h3 className="text-5xl font-semibold text-black mb-8">
-            Welcome To <span className="text-yellow-600">DSS</span> - Your Scaffolding Solutions Partner
+          <h3 className="text-5xl font-semibold text-black ">
+            Welcome To <span className="text-yellow-600">DSS</span> - Your Shuttering and Scaffolding Service Provider
           </h3>
         </div>
 
         <div>
           <p className="text-lg text-gray-700 leading-relaxed mb-4 mt-12">
-           At Decent Shuttering Solution, we specialize in providing high-quality shuttering material, scaffolding solutions, and construction support systems for every range of building projects. Our objective is to assist contractors, builders, and developers with reliable shuttering solutions that ensure strength, accuracy, and durability in concrete structures.
-           We understand the technical and operational challenges of construction work.<br/>
-           Our team works closely with clients to deliver cost-effective shuttering and scaffolding solutions, focusing on material quality, safety compliance, and timely availability. Every project is handled with attention to detail, ensuring consistent performance at the construction site.
-           Through transparent working practices and a commitment to continuous improvement, Decent Shuttering Solution has earned the trust of professionals across the construction industry. Our solutions contribute to efficient project execution, reduced material wastage, and improved structural outcomes.
-
+           At Decent Shuttering Solution, we specialise in providing top quality shuttering and scaffolding
+            materials on rent to meet all your construction needs. We have products, Cuplocks, Joint pins, 
+            Couplers, Jacks, Mild steel pipes, Steel plates, Planks, Acrospan, Props, Channels, Steel Challi, 
+            and many more. If you are looking for any kind of shuttering and scaffolding materials, we are your 
+            one stop destination.
           </p>
 
           <div className="flex space-x-4">

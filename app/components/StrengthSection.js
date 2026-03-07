@@ -52,7 +52,7 @@ export default function StrengthSection() {
                 </div>
 
                 <div className="max-w-xl ml-20">
-                    <span className="text-lg tracking-[3px] text-amber-300 font-semibold">
+                    <span className="text-lg tracking-[3px] text-amber-400 font-semibold">
                         DECENT SHUTTERING SOLUTION
                     </span>
                     <h2 className="text-5xl font-extrabold mt-2 mb-6">

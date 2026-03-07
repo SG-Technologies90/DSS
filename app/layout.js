@@ -1,13 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Product from "./components/Product";
-import StatsSection from "./components/StatsSection";
-import StrengthSection from "./components/StrengthSection";
-import TestimonialSection from "./components/TestimonialSection";
-import ImageCards from "./components/ImageCards";
+
 import Footer from "./components/Footer";
 
 const geistSans = Geist({
@@ -30,13 +24,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Navbar/>
-        <Hero/>
-        <About/>
-        <Product/>
-        <StatsSection/>
-        <StrengthSection/>
-        <TestimonialSection/>
-        <ImageCards/>
+        {children}
         <Footer/>
       </body>
     </html>
