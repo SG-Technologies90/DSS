@@ -40,22 +40,34 @@ export default function Footer() {
 
           <ul className="space-y-2 text-sm ml-20">
             <li className="flex items-center gap-2 hover:text-yellow-500 cursor-pointer">
-              ✔ Home
+             <a href="/">
+                ✔ Home
+              </a>
             </li>
             <li className="flex items-center gap-2 hover:text-yellow-500 cursor-pointer">
-              ✔ About
+              <a href="/about">
+                ✔ About
+              </a>
             </li>
             <li className="flex items-center gap-2 hover:text-yellow-500 cursor-pointer">
-              ✔ Our Products
+              <a href="/our-product">
+                ✔ Our Products
+              </a>
             </li>
             <li className="flex items-center gap-2 hover:text-yellow-500 cursor-pointer">
-              ✔ Our Gallery
+              <a href="/gallery">
+                ✔ Our Gallery
+              </a>
             </li>
             <li className="flex items-center gap-2 hover:text-yellow-500 cursor-pointer">
-              ✔ Blog
+              <a href="/blogs">
+                ✔ Blog
+              </a>
             </li>
             <li className="flex items-center gap-2 hover:text-yellow-500 cursor-pointer">
-              ✔ Contact Us
+              <a href="/contact">
+                ✔ Contact Us
+              </a>
             </li>
           </ul>
         </div>

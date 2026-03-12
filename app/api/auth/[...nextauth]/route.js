@@ -1,8 +1,8 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-import { connectDB } from "@/lib/db"; // Adjust this path if your lib folder is elsewhere
-import User from "@/models/User"; // Adjust this path if your models folder is elsewhere
+import { connectDB } from "@/lib/db";
+import User from "@/models/User"; 
 
 export const authOptions = {
   providers: [
@@ -41,7 +41,7 @@ export const authOptions = {
     })
   ],
   session: {
-    strategy: "jwt", // NextAuth uses JWTs under the hood for Credentials provider
+    strategy: "jwt",
   },
   callbacks: {
     // This passes the user ID from the authorize function to the JWT token
@@ -60,7 +60,7 @@ export const authOptions = {
     }
   },
   pages: {
-    signIn: "/login", // Tells NextAuth where your custom login page is
+    signIn: "/login", 
   },
   secret: process.env.NEXTAUTH_SECRET,
 };

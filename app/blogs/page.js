@@ -48,26 +48,30 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-white font-sans">
       
-      {/* 1. Hero Banner Section */}
-      <section className="relative h-[300px] md:h-[400px] flex items-center justify-center text-center">
-        {/* Background Image with Overlay */}
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{ 
-            // You can replace this URL with your actual dark scaffolding image path
-            backgroundImage: "url('https://images.unsplash.com/photo-1541888088325-1ce11667e4e0?q=80&w=2000&auto=format&fit=crop')",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/70"></div> {/* Dark overlay */}
-        </div>
+     <section
+        className="relative h-[400px] flex items-center justify-center text-white"
+        style={{
+          backgroundImage: "url('img_1.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* overlay */}
+        <div className="absolute inset-0 bg-black/50"></div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 text-white px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Blog</h1>
-          <div className="flex items-center justify-center gap-2 text-sm font-medium">
-            <Link href="/" className="hover:text-[#f4b63f] transition-colors">Home</Link>
-            <span>&gt;</span>
-            <span className="text-gray-300">Our Blog</span>
+        {/* center content */}
+        <div className="relative text-center">
+          <h1 className="text-5xl font-bold mt-15">Blogs</h1>
+          <div className="mt-3 text-lg">
+           <span className="opacity-80 cursor-pointer">
+           <a href="/" className="hover:text-amber-300">
+              Home
+            </a>
+            </span>
+            <span className="mx-2">{'>'}</span>
+            <span className="text-amber-300" href="/blogs">
+            Blogs
+            </span>
           </div>
         </div>
       </section>

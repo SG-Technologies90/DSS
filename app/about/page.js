@@ -1,3 +1,4 @@
+import { Link } from "lucide-react";
 import TestimonialSection from "../components/TestimonialSection";
 
 export default function About() {
@@ -44,9 +45,15 @@ export default function About() {
           <h1 className="text-5xl font-bold mt-15">About Us</h1>
 
           <div className="mt-3 text-lg">
-            <span className="opacity-80">Home</span>
+           <span className="opacity-80 cursor-pointer">
+           <a href="/" className="hover:text-amber-300">
+              Home
+            </a>
+            </span>
             <span className="mx-2">{'>'}</span>
-            <span className="text-orange-400">About Us</span>
+            <span className="text-amber-300" href="/about">
+              About Us
+            </span>
           </div>
         </div>
       </section>
@@ -71,11 +78,11 @@ export default function About() {
 
             {/* small heading */}
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-orange-500 tracking-[3px] text-sm font-semibold">
+              <span className="text-amber-300 tracking-[3px] text-sm font-semibold">
                 ABOUT US
               </span>
 
-              <div className="w-10 h-[2px] bg-orange-500"></div>
+              <div className="w-10 h-0.5 bg-amber-300"></div>
             </div>
 
             {/* main heading */}
@@ -93,7 +100,7 @@ export default function About() {
               contractors, builders, and developers with reliable shuttering solutions 
               that ensure strength, accuracy, and durability in concrete structures.
               We understand the technical and operational challenges of construction work. 
-
+            </p>
             <p className="text-gray-600 mb-5 leading-relaxed">
               Our team works closely with clients to deliver cost-effective shuttering 
               and scaffolding solutions, focusing on material quality, safety compliance, 
@@ -102,8 +109,6 @@ export default function About() {
               Through transparent working practices and a commitment to continuous improvement, 
               Decent Shuttering Solution has earned the trust of professionals across the construction 
               industry. 
-
-            </p>
             </p>
 
             <p className="text-gray-600 leading-relaxed">

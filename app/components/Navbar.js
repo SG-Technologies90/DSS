@@ -12,12 +12,12 @@ export default function Navbar() {
 
         {/* --- DESKTOP NAVIGATION (Unchanged) --- */}
         <nav className="hidden md:flex items-center gap-10 text-white font-medium mr-6">
-          <Link href="/" >Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/our-product" className="flex items-center gap-1 hover:text-cyan-400 transition"> Our Products</Link>
-          <Link href="/gallery">Our Gallery</Link>
-          <Link href="/blogs">Blogs</Link>
-          <Link href="/contact">Contact Us</Link>
+          <Link href="/" className="flex items-center gap-1 hover:text-amber-300 transition">Home</Link>
+          <Link href="/about" className="flex items-center gap-1 hover:text-amber-300 transition">About</Link>
+          <Link href="/our-product" className="flex items-center gap-1 hover:text-amber-300 transition"> Our Products</Link>
+          <Link href="/gallery" className="flex items-center gap-1 hover:text-amber-300 transition">Our Gallery</Link>
+          <Link href="/blogs" className="flex items-center gap-1 hover:text-amber-300 transition">Blogs</Link>
+          <Link href="/contact" className="flex items-center gap-1 hover:text-amber-300 transition">Contact Us</Link>
         </nav>
       </div>
     </header>

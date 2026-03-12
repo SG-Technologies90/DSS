@@ -21,28 +21,30 @@ export default async function SingleBlogPage({ params }) {
   return (
     <div className="min-h-screen bg-white font-sans">
       
-      {/* 1. Hero Banner Section (Matches your first image) */}
-      <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-center">
-        {/* Background Image with Dark Overlay */}
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{ 
-            // Generic scaffolding background, you can swap this with your actual background
-            backgroundImage: "url('https://images.unsplash.com/photo-1541888088325-1ce11667e4e0?q=80&w=2000&auto=format&fit=crop')",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/75"></div>
-        </div>
+      <section
+        className="relative h-[400px] flex items-center justify-center text-white"
+        style={{
+          backgroundImage: "url('img_1.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* overlay */}
+        <div className="absolute inset-0 bg-black/50"></div>
 
-        {/* Hero Content: Title and Breadcrumbs */}
-        <div className="relative z-10 text-white px-4 max-w-5xl mx-auto mt-12">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight md:leading-snug">
-            {blog.title}
-          </h1>
-          <div className="flex items-center justify-center gap-2 text-sm md:text-base font-medium text-gray-300">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <span className="text-gray-400">&gt;</span>
-            <Link href="/blogs" className="hover:text-white transition-colors">Our Blog</Link>
+        {/* center content */}
+        <div className="relative text-center">
+          <h1 className="text-5xl font-bold mt-15">Blog</h1>
+          <div className="mt-3 text-lg">
+           <span className="opacity-80 cursor-pointer">
+           <a href="/" className="hover:text-amber-300">
+              Home
+            </a>
+            </span>
+            <span className="mx-2">{'>'}</span>
+            <span className="text-amber-300" href="/blogs">
+            Blog
+            </span>
           </div>
         </div>
       </section>
