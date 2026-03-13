@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { 
   LayoutDashboard, 
   PenTool, 
@@ -10,21 +10,56 @@ import {
   X 
 } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 
-export default function AddBlogDashboard() {
+export default function EditBlogDashboard() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const router = useRouter();
+  const params = useParams();
+  const { id } = params; // Get the blog ID from the URL
   const fileInputRef = useRef(null);
 
   // Form State Variables
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
-  const [content, setContent] = useState(""); // Plain text description
+  const [content, setContent] = useState(""); 
   const [category, setCategory] = useState("Web Development");
   const [tags, setTags] = useState("");
-  const [featuredImage, setFeaturedImage] = useState(null); // Stores the Base64 image
+  const [featuredImage, setFeaturedImage] = useState(null); 
   const [isLoading, setIsLoading] = useState(false);
+  const [isFetching, setIsFetching] = useState(true);
+
+  // 1. Fetch Existing Blog Data on Load
+  useEffect(() => {
+    const fetchBlogData = async () => {
+      try {
+        const res = await fetch(`/api/blogs/${id}`);
+        if (res.ok) {
+          const data = await res.json();
+          const blog = data.blog;
+          
+          // Pre-fill the form with the fetched data
+          setTitle(blog.title);
+          setSlug(blog.slug);
+          setContent(blog.content);
+          setCategory(blog.category);
+          setTags(blog.tags.join(", ")); // Convert array back to comma-separated string
+          setFeaturedImage(blog.featuredImage);
+        } else {
+          alert("Failed to fetch blog data.");
+          router.push("/admin/dashboard");
+        }
+      } catch (error) {
+        console.error("Error fetching blog:", error);
+      } finally {
+        setIsFetching(false);
+      }
+    };
+
+    if (id) {
+      fetchBlogData();
+    }
+  }, [id, router]);
 
   // Handle Image Selection & Preview
   const handleImageChange = (e) => {
@@ -32,13 +67,13 @@ export default function AddBlogDashboard() {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setFeaturedImage(reader.result); // Save as Base64 string
+        setFeaturedImage(reader.result); 
       };
       reader.readAsDataURL(file);
     }
   };
 
-  // Handle API Call to Save Data to MongoDB
+  // 2. Handle API Call to UPDATE Data (PUT Request)
   const handleSave = async (status) => {
     if (!title || !slug || !content) {
       alert("Please fill in the title, slug, and content.");
@@ -47,10 +82,8 @@ export default function AddBlogDashboard() {
 
     setIsLoading(true);
 
-    // Clean up tags into an array
     const tagsArray = tags.split(",").map((tag) => tag.trim()).filter(Boolean);
 
-    // Group all data to send to backend
     const payload = {
       title,
       slug,
@@ -62,19 +95,20 @@ export default function AddBlogDashboard() {
     };
 
     try {
-      const res = await fetch("/api/blogs", {
-        method: "POST",
+      // Use PUT method and target the specific ID
+      const res = await fetch(`/api/blogs/${id}`, {
+        method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
       if (res.ok) {
-        alert(`Blog ${status === "Published" ? "published" : "saved"} successfully!`);
+        alert(`Blog ${status === "Published" ? "updated and published" : "saved as draft"} successfully!`);
         router.push("/admin/dashboard");
         router.refresh();
       } else {
         const data = await res.json();
-        alert(data.error || "Failed to save blog");
+        alert(data.error || "Failed to update blog");
       }
     } catch (error) {
       console.error(error);
@@ -83,6 +117,23 @@ export default function AddBlogDashboard() {
       setIsLoading(false);
     }
   };
+
+  // Logout Handler
+  const handleLogout = async () => {
+    try {
+        const res = await fetch("/api/logout", { method: "POST" });
+        if (res.ok) {
+            router.push("/login"); 
+            router.refresh(); 
+        }
+    } catch (error) {
+        console.error("Error during logout:", error);
+    }
+  };
+
+  if (isFetching) {
+      return <div className="min-h-screen flex items-center justify-center text-black">Loading editor...</div>;
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 flex font-sans">
@@ -104,7 +155,7 @@ export default function AddBlogDashboard() {
         </div>
         
         <nav className="p-4 space-y-2">
-           <Link href="/admin/dashboard" className="flex items-center gap-3 px-4 py-3 bg-indigo-50 text-indigo-600 rounded-lg transition-colors">
+           <Link href="/admin/dashboard" className="flex items-center gap-3 px-4 py-3 text-black rounded-lg hover:bg-slate-200 hover:text-indigo-600 transition-colors">
             <LayoutDashboard size={20} />
             <span className="font-medium">Dashboard</span>
           </Link>
@@ -115,7 +166,7 @@ export default function AddBlogDashboard() {
         </nav>
 
         <div className="absolute bottom-0 w-full p-4 border-t border-slate-200">
-          <button className="flex items-center gap-3 px-4 py-3 w-full text-black rounded-lg hover:bg-red-50 hover:text-red-600 transition-colors">
+          <button onClick={handleLogout} className="flex items-center gap-3 px-4 py-3 w-full text-black rounded-lg hover:bg-red-50 hover:text-red-600 transition-colors">
             <LogOut size={20} />
             <span className="font-medium">Logout</span>
           </button>
@@ -133,7 +184,7 @@ export default function AddBlogDashboard() {
             >
               <Menu size={24} />
             </button>
-            <h1 className="text-xl font-semibold text-black">Create New Post</h1>
+            <h1 className="text-xl font-semibold text-black">Edit Post</h1>
           </div>
           <div className="flex items-center gap-4">
             <button 
@@ -148,7 +199,7 @@ export default function AddBlogDashboard() {
               disabled={isLoading}
               className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 shadow-sm transition-colors disabled:opacity-50"
             >
-              {isLoading ? "Saving..." : "Publish Post"}
+              {isLoading ? "Updating..." : "Update Post"}
             </button>
           </div>
         </header>
@@ -188,7 +239,7 @@ export default function AddBlogDashboard() {
                   disabled={isLoading}
                   className="w-full py-4 text-lg font-bold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 shadow-md transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                 >
-                  {isLoading ? "Saving to Database..." : "Publish Blog Post"}
+                  {isLoading ? "Updating in Database..." : "Update Blog Post"}
                 </button>
               </div>
 

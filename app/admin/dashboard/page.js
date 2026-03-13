@@ -14,23 +14,24 @@ import {
     Trash2
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function DashboardList() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    
-    // 1. State for storing fetched blogs and loading status
+    const router = useRouter();
+
     const [blogs, setBlogs] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    // 2. Fetch blogs from the API when the component loads
+    // Fetch blogs on load
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
                 const res = await fetch("/api/blogs");
                 if (!res.ok) throw new Error("Failed to fetch blogs");
-                
+
                 const data = await res.json();
-                setBlogs(data.blogs); // Set the array of blogs from MongoDB
+                setBlogs(data.blogs);
             } catch (error) {
                 console.error("Error fetching blogs:", error);
             } finally {
@@ -41,7 +42,50 @@ export default function DashboardList() {
         fetchBlogs();
     }, []);
 
-    // Helper function to format MongoDB dates
+    // NEW: Delete Handler
+    const handleDelete = async (blogId) => {
+        // 1. Show a confirmation popup so you don't delete by accident
+        const isConfirmed = window.confirm("Are you sure you want to delete this blog post? This action cannot be undone.");
+
+        if (!isConfirmed) return;
+
+        try {
+            // 2. Call the DELETE API we just created
+            const res = await fetch(`/api/blogs/${blogId}`, {
+                method: "DELETE",
+            });
+
+            if (res.ok) {
+                // 3. Remove the deleted blog from the screen instantly
+                setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog._id !== blogId));
+                alert("Blog deleted successfully!");
+            } else {
+                const data = await res.json();
+                alert(data.error || "Failed to delete blog");
+            }
+        } catch (error) {
+            console.error("Error deleting blog:", error);
+            alert("Something went wrong while deleting.");
+        }
+    };
+
+    // Logout Handler
+    const handleLogout = async () => {
+        try {
+            const res = await fetch("/api/logout", {
+                method: "POST",
+            });
+
+            if (res.ok) {
+                router.push("/login");
+                router.refresh();
+            }
+        } catch (error) {
+            console.error("Error during logout:", error);
+        }
+    };
+
+    // Date Formatter
     const formatDate = (dateString) => {
         return new Date(dateString).toLocaleDateString("en-US", {
             month: "short",
@@ -52,13 +96,7 @@ export default function DashboardList() {
 
     return (
         <div className="min-h-screen bg-slate-50 flex font-sans">
-            {/* Mobile Sidebar Overlay */}
-            {isSidebarOpen && (
-                <div
-                    className="fixed inset-0 bg-black/50 z-20 lg:hidden"
-                    onClick={() => setIsSidebarOpen(false)}
-                />
-            )}
+            {/* ... (Keep your Sidebar and Header exactly as they are) ... */}
 
             {/* Sidebar */}
             <aside className={`fixed lg:static inset-y-0 left-0 z-30 w-64 bg-white border-r border-slate-200 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
@@ -81,7 +119,10 @@ export default function DashboardList() {
                 </nav>
 
                 <div className="absolute bottom-0 w-full p-4 border-t border-slate-200">
-                    <button className="flex items-center gap-3 px-4 py-3 w-full text-black rounded-lg hover:bg-red-50 hover:text-red-600 transition-colors">
+                    <button
+                        onClick={handleLogout}
+                        className="flex items-center gap-3 px-4 py-3 w-full text-black rounded-lg hover:bg-red-50 hover:text-red-600 transition-colors"
+                    >
                         <LogOut size={20} />
                         <span className="font-medium">Logout</span>
                     </button>
@@ -112,7 +153,6 @@ export default function DashboardList() {
                     </div>
                 </header>
 
-                {/* Scrollable Content Area */}
                 <div className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
                     <div className="max-w-6xl mx-auto space-y-6">
 
@@ -125,15 +165,6 @@ export default function DashboardList() {
                                     placeholder="Search posts..."
                                     className="w-full pl-10 pr-4 py-2 text-sm text-black placeholder:text-gray-500 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 />
-                            </div>
-                            <div className="flex gap-2 w-full sm:w-auto">
-                                <select className="px-3 py-2 text-sm text-black border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white">
-                                    <option>All Categories</option>
-                                    <option>Web Development</option>
-                                    <option>UI/UX Design</option>
-                                    <option>Tutorial</option>
-                                    <option>Technology</option>
-                                </select>
                             </div>
                         </div>
 
@@ -151,22 +182,15 @@ export default function DashboardList() {
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-slate-200">
-                                        {/* Loading State */}
                                         {isLoading ? (
                                             <tr>
-                                                <td colSpan="5" className="px-6 py-8 text-center text-black">
-                                                    Loading posts...
-                                                </td>
+                                                <td colSpan="5" className="px-6 py-8 text-center text-black">Loading posts...</td>
                                             </tr>
                                         ) : blogs.length === 0 ? (
-                                            /* Empty State */
                                             <tr>
-                                                <td colSpan="5" className="px-6 py-8 text-center text-black">
-                                                    No posts found. Create your first blog post!
-                                                </td>
+                                                <td colSpan="5" className="px-6 py-8 text-center text-black">No posts found.</td>
                                             </tr>
                                         ) : (
-                                            /* Map through actual database blogs */
                                             blogs.map((blog) => (
                                                 <tr key={blog._id} className="hover:bg-slate-50 transition-colors">
                                                     <td className="px-6 py-4">
@@ -176,8 +200,7 @@ export default function DashboardList() {
                                                         <span className="text-sm text-black">{blog.category}</span>
                                                     </td>
                                                     <td className="px-6 py-4">
-                                                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
-                                                            ${blog.status === 'Published' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'}`}>
+                                                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${blog.status === 'Published' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'}`}>
                                                             {blog.status}
                                                         </span>
                                                     </td>
@@ -186,12 +209,23 @@ export default function DashboardList() {
                                                     </td>
                                                     <td className="px-6 py-4 text-right">
                                                         <div className="flex items-center justify-end gap-2">
-                                                            <button className="p-2 text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors">
+                                                            <button
+                                                                onClick={() => router.push(`/admin/edit-blog/${blog._id}`)}
+                                                                className="p-2 text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"
+                                                                title="Edit Post"
+                                                            >
                                                                 <Edit size={18} />
                                                             </button>
-                                                            <button className="p-2 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors">
+
+                                                            {/* UPDATED: Attach handleDelete to the Trash button */}
+                                                            <button
+                                                                onClick={() => handleDelete(blog._id)}
+                                                                className="p-2 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                                                                title="Delete Post"
+                                                            >
                                                                 <Trash2 size={18} />
                                                             </button>
+
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -200,13 +234,6 @@ export default function DashboardList() {
                                     </tbody>
                                 </table>
                             </div>
-
-                            {/* Pagination (Visual Only) */}
-                            {!isLoading && blogs.length > 0 && (
-                                <div className="px-6 py-4 border-t border-slate-200 flex items-center justify-between">
-                                    <span className="text-sm text-black">Showing {blogs.length} results</span>
-                                </div>
-                            )}
                         </div>
 
                     </div>
