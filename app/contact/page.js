@@ -105,18 +105,18 @@ export default function Contact() {
                 </div>
 
                 {/* GURUGRAM CARD */}
-                <div className="bg-white p-6 shadow-sm border border-gray-200 flex flex-col items-center text-center mb-12 max-w-2xl mx-auto">
+                <div className="bg-white p-6 shadow-sm border border-gray-200 flex flex-col items-center text-center mb-12 max-w-screen mx-auto h-130">
                     <h3 className="text-xl font-bold text-amber-400 mb-4 uppercase tracking-wide">Gurugram</h3>
                     <div className="w-full h-48 bg-gray-200 mb-6 relative">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.354219126699!2d76.8912160752827!3d28.468877275754558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d15a779d7dd63%3A0x619c711646cc0ea6!2sDecent%20Shuttering%20Solution!5e0!3m2!1sen!2sin!4v1773419570570!5m2!1sen!2sin"
-                            className="w-full h-full border-0" 
+                            className="w-full h-80 border-0" 
                             allowFullScreen="" 
                             loading="lazy" 
                             referrerPolicy="no-referrer-when-downgrade"
                         ></iframe>
                     </div>
-                    <div className="text-sm text-gray-600 space-y-2 mt-4">
+                    <div className="text-sm text-gray-600 space-y-2 mt-30">
                         <p><strong className="text-gray-900">Phone:</strong> +919813302676, +918708278902</p>
                         <p><strong className="text-gray-900">Email Id:</strong> dssshuttering@gmail.com</p>
                         <p><strong className="text-gray-900">Address:</strong> Khata No. 334/344, VPO Chandu, Opp. Sultanpur National Park, Gurugram - 122505 (Hr.)</p>
@@ -124,8 +124,8 @@ export default function Contact() {
                 </div>
 
                 {/* 3. Get In Touch Form Section */}
-                <div className="bg-white shadow-sm border border-gray-200 rounded p-8 md:p-12 max-w-4xl mx-auto mt-12">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                <div className="bg-white shadow-sm border border-gray-200 rounded p-8 md:p-12 max-w-7xl mx-auto mt-12">
+                    <h2 className="text-3xl font-bold text-amber-400 mb-4">Get In Touch</h2>
                     <p className="text-gray-500 text-sm mb-8 leading-relaxed max-w-2xl">
                         We have a team of highly qualified and dexterous technocrats, professional and dedicated marketing personnel. The company has a vast client network in the Indian Market. Contact Us to know more.
                     </p>
