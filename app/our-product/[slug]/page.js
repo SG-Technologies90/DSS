@@ -3,18 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-
-// Import the static array we created in the main products page
 import { productList } from "../page"; 
 
+export const metadata = {
+  title: "Our Product | " + productList[0].title, // Default title, will be overridden by dynamic content
+  description: "Learn more about our high-quality scaffolding products designed for durability and safety.",
+  alternates: {
+    canonical: "https://yourdomain.com/our-product/" + productList[0].slug,
+  },
+};
+
 export default async function SingleProductPage({ params }) {
-  // Await params in modern Next.js 15+
   const { slug } = await params;
-
-  // Search the array for the product that matches the URL slug
   const product = productList.find((p) => p.slug === slug);
-
-  // If someone types an invalid slug in the URL, show 404 page
   if (!product) {
     notFound();
   }
@@ -23,11 +24,12 @@ export default async function SingleProductPage({ params }) {
     <div className="min-h-screen bg-white font-sans pb-24">
       
       {/* Hero Header with dark overlay */}
-      <section className="relative h-[300px] flex items-center justify-center text-white"
+      <section className="relative h-100 flex items-center justify-center text-white"
         style={{
           backgroundImage: "url('/img_1.jpg')", // Used the same background as the main page
           backgroundSize: "cover",
           backgroundPosition: "center",
+          loading:"lazy",
         }}
       >
         <div className="absolute inset-0 bg-black/70"></div>
@@ -58,12 +60,13 @@ export default async function SingleProductPage({ params }) {
         <div className="flex flex-col md:flex-row gap-12 items-start">
           
           {/* Left Column: Image */}
-          <div className="w-full md:w-1/2 relative h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-lg bg-gray-100">
+          <div className="w-full md:w-1/2 relative h-100 md:h-125 rounded-xl overflow-hidden shadow-lg bg-gray-100">
             <Image 
               src={product.image} 
               alt={product.title} 
               fill 
               className="object-cover"
+              loading="lazy"
             />
           </div>
 

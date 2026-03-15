@@ -1,3 +1,12 @@
+
+export const metadata = {
+  title: "Our Gallery | DSS",
+  description: "Browse through our gallery to see the quality and variety of our shuttering and scaffolding solutions in action.",
+  alternates: {
+    canonical: "https://yourdomain.com/gallery",
+  },
+};
+
 export default function Gallery() {
   const images = [
     "/img_1.jpg",
@@ -14,11 +23,12 @@ export default function Gallery() {
   return (
     <div>
       <section
-        className="relative h-[400px] flex items-center justify-center text-white"
+        className="relative h-100 flex items-center justify-center text-white"
         style={{
           backgroundImage: "url('img_1.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
+          loading: "lazy",
         }}
       >
         {/* overlay */}
@@ -52,7 +62,8 @@ export default function Gallery() {
               <img
                 src={img}
                 alt="gallery"
-                className="w-full h-[260px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                className="w-full h-65 object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                loading="lazy"
               />
             </div>
           ))}

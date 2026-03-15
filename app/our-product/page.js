@@ -1,6 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Our Products | DSS",
+  description: "Explore our range of high-quality shuttering and scaffolding products designed to meet the needs of construction projects of all sizes.",
+  alternates: {
+    canonical: "https://yourdomain.com/our-products",
+  },
+};
+
 // 1. Export the list and add 'slug' to each item
 export const productList = [
   {
@@ -8,77 +16,89 @@ export const productList = [
     slug: "vertical-standard", // URL friendly slug
     description: "A vertical standard regulates specific industry sectors with tailored guidelines.",
     image: "/products/vertical_standard.jpg",
+    loading: "lazy",
   },
   {
     title: "Horizontal Ledger",
     slug: "horizontal-ledger",
     description: "A horizontal ledger records transactions across multiple industries.",
     image: "/products/horizontal_ledger.jpg",
+    loading: "lazy",
   },
   {
     title: "U Head Jack",
     slug: "u-head-jack",
     description: "A U head jack supports scaffolding beams and provides height adjustment.",
     image: "/products/u_head_jack.jpg",
+    loading: "lazy",
   },
   {
     title: "Base Jack",
     slug: "base-jack",
     description: "A base jack provides stability and height adjustment for scaffolding.",
     image: "/products/base_jack.jpg",
+    loading: "lazy",
   },
   {
     title: "Spigot Pin",
     slug: "spigot-pin",
     description: "A spigot pin connects scaffolding tubes ensuring alignment and stability.",
     image: "/products/spigot_pin.jpg",
+    loading: "lazy",
   },
   {
     title: "Steel Challi",
     slug: "steel-challi",
     description: "A steel challi is a durable mesh-like reinforcement used in construction.",
     image: "/products/steel_challi.jpg",
+    loading: "lazy",
   },
   {
     title: "Shuttering Plates",
     slug: "shuttering-plates",
     description: "Shuttering plates are temporary molds used to hold concrete in construction projects.",
     image: "/products/shuttering_plates.jpg",
+    loading: "lazy",
   },
   {
     title: "Span",
     slug: "span",
     description: "In construction, span refers to the distance between supports for beams or structures.",
     image: "/products/span.jpg",
+    loading: "lazy",
   },
   {
     title: "Adjustable Telescopic Props",
     slug: "adjustable-telescopic-props",
     description: "Adjustable telescopic props provide stable support for construction projects.",
     image: "/products/adjustable_telescopic_prop.jpg",
+    loading: "lazy",
   },
   {
     title: "Cuplock System",
     slug: "cuplock-system",
     description: "The Cuplock system is a modular scaffolding system known for its quick assembly and dismantling features.",
     image: "/products/cuplock_system.jpg",
+    loading: "lazy",
   },
   {
     title: "MS Channel",
     slug: "ms-channel",
     description: "MS (Mild Steel) Channels are structural steel components with a cross-sectional shape resembling a C or a U.",
     image: "/products/ms_channel.jpg",
+    loading: "lazy",
   },
 ];
 
 export default function Product() {
   return (
     <>
-      <section className="relative h-[400px] flex items-center justify-center text-white"
+      <section className="relative h-100 flex items-center justify-center text-white"
         style={{
           backgroundImage: "url('img_1.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
+          loading: "lazy",
         }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
