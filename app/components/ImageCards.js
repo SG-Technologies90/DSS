@@ -28,7 +28,7 @@ export default function ImageCards() {
             key={card.id}
             className="overflow-hidden group"
           >
-            <div className="relative w-full h-[250px]">
+            <div className="relative w-full h-62">
               <Image
                 src={card.img}
                 alt="card image"
