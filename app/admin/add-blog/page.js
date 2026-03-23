@@ -55,7 +55,7 @@ export default function AddBlogDashboard() {
     }
   };
 
-  // SAVE BLOG
+  // SAVE BLOG TO BACKEND
   const handleSave = async (status) => {
     if (!title || !slug || !content) {
       alert("Please fill title, slug and content");
@@ -114,7 +114,7 @@ export default function AddBlogDashboard() {
       {/* Mobile Overlay - EXTREMELY HIGH Z-INDEX */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm lg:hidden transition-opacity"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998] lg:hidden transition-opacity"
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
@@ -278,6 +278,18 @@ export default function AddBlogDashboard() {
                   onClick={() => editor && editor.chain().focus().run()}
                 />
               </div>
+
+              {/* BIG SUBMIT BUTTON AT THE BOTTOM OF THE EDITOR */}
+              <div className="pt-2">
+                <button 
+                  onClick={() => handleSave("Published")}
+                  disabled={isLoading}
+                  className="w-full py-4 text-lg font-bold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 shadow-md transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                >
+                  {isLoading ? "Saving to Database..." : "Publish Blog Post"}
+                </button>
+              </div>
+
             </div>
 
             {/* RIGHT COLUMN: Settings */}
