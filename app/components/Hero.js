@@ -35,18 +35,14 @@ export default function Hero() {
         </div>
 
         {/* Title */}
-        <h1 className="font-extrabold uppercase tracking-wide sm:tracking-widest 
-        text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl
-        bg-linear-to-r from-yellow-500 via-white to-gray-400 
-        bg-clip-text text-transparent animate-shine leading-tight">
+        <h1 className={"font-extrabold uppercase tracking-wide sm:tracking-widest  text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl bg-linear-to-r from-yellow-500 via-white to-gray-400 bg-clip-text text-transparent animate-shine leading-tight"}>
 
           DECENT SHUTTERING SOLUTION
 
         </h1>
 
         {/* Description */}
-        <p className="mt-6 sm:mt-8 md:mt-10 max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-3xl
-        text-sm sm:text-base md:text-lg lg:text-xl text-gray-300">
+        <p className="mt-6 sm:mt-8 md:mt-10 max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300">
 
           Decent Shuttering Solution is a reliable provider of construction
           shuttering and scaffolding solutions, supporting residential,
