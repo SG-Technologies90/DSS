@@ -80,7 +80,8 @@ export default function AddBlogDashboard() {
     };
 
     try {
-      const res = await fetch("/api/blogs", {
+      const baseUrl = process.env.NEXT_PUBLIC_API_URL || "";
+      const res = await fetch(`${baseUrl}/api/blogs`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,8 +91,7 @@ export default function AddBlogDashboard() {
 
       if (res.ok) {
         alert(
-          `Blog ${
-            status === "Published" ? "published" : "saved"
+          `Blog ${status === "Published" ? "published" : "saved"
           } successfully`
         );
 
@@ -195,10 +195,10 @@ export default function AddBlogDashboard() {
         {/* SCROLLABLE PAGE CONTENT */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-            
+
             {/* LEFT COLUMN: Editor */}
             <div className="lg:col-span-2 space-y-6">
-              
+
               <div className="bg-white p-4 sm:p-6 rounded-xl border border-slate-200 shadow-sm">
                 <input
                   type="text"
@@ -213,7 +213,7 @@ export default function AddBlogDashboard() {
               <div className="bg-white rounded-xl border border-slate-200 text-black overflow-hidden shadow-sm flex flex-col">
                 {editor && (
                   <div className="flex gap-2 border-b p-2 sm:p-3 bg-slate-50 flex-wrap sticky top-0 z-10">
-                    
+
                     <button
                       onClick={() => editor.chain().focus().toggleBold().run()}
                       className={`px-3 py-1.5 border rounded text-sm font-medium transition-colors ${editor.isActive('bold') ? 'bg-slate-800 text-white border-slate-800' : 'bg-white hover:bg-slate-100 text-slate-700'}`}
@@ -281,7 +281,7 @@ export default function AddBlogDashboard() {
 
               {/* BIG SUBMIT BUTTON AT THE BOTTOM OF THE EDITOR */}
               <div className="pt-2">
-                <button 
+                <button
                   onClick={() => handleSave("Published")}
                   disabled={isLoading}
                   className="w-full py-4 text-lg font-bold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 shadow-md transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
@@ -294,7 +294,7 @@ export default function AddBlogDashboard() {
 
             {/* RIGHT COLUMN: Settings */}
             <div className="space-y-6">
-              
+
               <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
                 <h3 className="text-sm text-black font-bold mb-4">
                   Featured Image
@@ -327,7 +327,7 @@ export default function AddBlogDashboard() {
                   )}
                 </div>
                 {featuredImage && (
-                  <button 
+                  <button
                     onClick={() => setFeaturedImage(null)}
                     className="mt-3 w-full text-sm text-red-600 hover:text-red-800 font-bold transition-colors"
                   >

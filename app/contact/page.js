@@ -12,6 +12,7 @@ export default function Contact() {
         message: "",
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "";
 
     // 2. Handle Input Changes
     const handleChange = (e) => {
@@ -25,7 +26,7 @@ export default function Contact() {
         setIsSubmitting(true);
 
         try {
-            const res = await fetch("/api/contact", {
+            const res = await fetch(`${baseUrl}/api/contact`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
@@ -73,7 +74,7 @@ export default function Contact() {
 
             {/* --- Main Content Container --- */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 relative z-20">
-                
+
                 {/* 1. Top Info Bar */}
                 <div className="bg-white shadow-sm rounded-lg p-6 md:p-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6 md:gap-0 mb-12">
                     {/* Phone */}
@@ -108,11 +109,11 @@ export default function Contact() {
                 <div className="bg-white p-6 shadow-sm border border-gray-200 flex flex-col items-center text-center mb-12 max-w-screen mx-auto h-130">
                     <h3 className="text-xl font-bold text-amber-400 mb-4 uppercase tracking-wide">Gurugram</h3>
                     <div className="w-full h-48 bg-gray-200 mb-6 relative">
-                        <iframe 
+                        <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.354219126699!2d76.8912160752827!3d28.468877275754558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d15a779d7dd63%3A0x619c711646cc0ea6!2sDecent%20Shuttering%20Solution!5e0!3m2!1sen!2sin!4v1773419570570!5m2!1sen!2sin"
-                            className="w-full h-80 border-0" 
-                            allowFullScreen="" 
-                            loading="lazy" 
+                            className="w-full h-80 border-0"
+                            allowFullScreen=""
+                            loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
                         ></iframe>
                     </div>
@@ -133,48 +134,48 @@ export default function Contact() {
                     {/* Bind the onSubmit handler here */}
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input 
-                                type="text" 
+                            <input
+                                type="text"
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange}
-                                placeholder="Your Name*" 
+                                placeholder="Your Name*"
                                 className="w-full border text-black border-gray-300 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#fbbc04] focus:ring-1 focus:ring-[#fbbc04]"
                                 required
                             />
-                            <input 
-                                type="tel" 
+                            <input
+                                type="tel"
                                 name="phone"
                                 value={formData.phone}
                                 onChange={handleChange}
-                                placeholder="Phone*" 
+                                placeholder="Phone*"
                                 className="w-full border border-gray-300 text-black rounded px-4 py-3 text-sm focus:outline-none focus:border-[#fbbc04] focus:ring-1 focus:ring-[#fbbc04]"
                                 required
                             />
                         </div>
 
                         <div className="grid grid-cols-1 gap-4">
-                            <input 
-                                type="email" 
+                            <input
+                                type="email"
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                placeholder="Email" 
+                                placeholder="Email"
                                 className="w-full border border-gray-300 rounded text-black px-4 py-3 text-sm focus:outline-none focus:border-[#fbbc04] focus:ring-1 focus:ring-[#fbbc04]"
                             />
                         </div>
 
-                        <textarea 
+                        <textarea
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
-                            placeholder="Your Queries" 
+                            placeholder="Your Queries"
                             rows="5"
                             className="w-full border text-black border-gray-300 rounded px-4 py-3 text-sm resize-none focus:outline-none focus:border-[#fbbc04] focus:ring-1 focus:ring-[#fbbc04]"
                         ></textarea>
 
-                        <button 
-                            type="submit" 
+                        <button
+                            type="submit"
                             disabled={isSubmitting}
                             className="bg-[#fbbc04] hover:bg-yellow-500 text-gray-900 font-bold uppercase tracking-wider text-sm px-8 py-3 rounded transition-colors text-align-center block mx-auto disabled:opacity-50"
                         >
