@@ -40,7 +40,7 @@ export default function Footer() {
 
           <ul className="space-y-2 text-sm ml-20">
             <li className="flex items-center gap-2 hover:text-yellow-500 cursor-pointer">
-             <a href="/">
+              <a href="/">
                 ✔ Home
               </a>
             </li>
@@ -79,14 +79,13 @@ export default function Footer() {
           </h3>
 
           <p className="text-sm mb-3">
-            <span className="text-yellow-500 font-semibold">GURUGRAM :</span>
             Khata No. 334/344, VPO Chandu, Opp. Sultanpur National Park, Gurugram - 122505 (Hr.)
           </p>
 
           <p className="text-sm">
             Call us :{" "}
             <span className="text-yellow-500 font-semibold">
-              +919813302676, 
+              +919813302676,
               +918708278902
             </span>
           </p>

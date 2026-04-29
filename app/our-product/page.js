@@ -61,10 +61,10 @@ export const productList = [
     loading: "lazy",
   },
   {
-    title: "Span",
-    slug: "span",
-    description: "In construction, span refers to the distance between supports for beams or structures.",
-    image: "/products/span.jpg",
+    title: "Clamp",
+    slug: "clamp",
+    description: "Clamps are essential scaffolding accessories used to securely connect and fasten tubes together.",
+    image: "/products/clamp.png",
     loading: "lazy",
   },
   {
@@ -126,7 +126,7 @@ export default function Product() {
               className="group bg-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition duration-300 flex flex-col"
             >
               <div className="relative h-52 overflow-hidden">
-                <Image src={product.image} alt={product.title} fill className="object-cover transition-transform duration-500 group-hover:scale-110"/>
+                <Image src={product.image} alt={product.title} fill className="object-cover transition-transform duration-500 group-hover:scale-110" />
               </div>
               <div className="p-5 flex flex-col flex-1">
                 {/* 2. Wrap Title in Link */}

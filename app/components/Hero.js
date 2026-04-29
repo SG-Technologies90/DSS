@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section className="relative w-full min-h-screen overflow-hidden">
-      
+
       {/* Background Video */}
       <video
         autoPlay
@@ -43,11 +43,7 @@ export default function Hero() {
 
         {/* Description */}
         <p className="mt-6 sm:mt-8 md:mt-10 max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300">
-
-          Decent Shuttering Solution is a reliable provider of construction
-          shuttering and scaffolding solutions, supporting residential,
-          commercial, and infrastructure projects.
-
+          Decent Shuttering Solution is a reliable provider of construction shuttering and scaffolding solutions, supporting residential, commercial, and infrastructure projects.
         </p>
 
       </div>

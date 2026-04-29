@@ -12,7 +12,7 @@ export default function StrengthSection() {
         {`@keyframes dashMove {
           from { stroke-dashoffset: 0; }
           to { stroke-dashoffset: -120; }
-        }`} 
+        }`}
       </style>
 
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20 px-6">
@@ -64,27 +64,16 @@ export default function StrengthSection() {
 
         {/* Text Section */}
         <div className="max-w-xl text-center lg:text-left lg:ml-10">
-          <span className="text-sm md:text-lg tracking-[3px] text-amber-400 font-semibold">
-            DECENT SHUTTERING SOLUTION
-          </span>
-
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mt-2 mb-6">
-            Strength
+            Decent Shuttering Solution <span className="text-amber-400">Strength</span>
           </h2>
 
           <p className="text-gray-600 leading-7 mb-5 text-sm md:text-base">
-            The company focuses on delivering strong, safe, and durable
-            shuttering materials that help achieve accurate concrete
-            structures and smooth construction execution.
+            The company focuses on delivering strong, safe, and durable shuttering materials that help achieve accurate concrete structures and smooth construction execution.
           </p>
 
           <p className="text-gray-600 leading-7 mb-6 text-sm md:text-base">
-            With a clear understanding of modern construction requirements,
-            Decent Shuttering Solution offers dependable shuttering systems
-            that improve work efficiency, structural strength, and on-site
-            safety. By following industry standards and quality practices,
-            the company supports builders and contractors in completing
-            projects on time and with precision.
+            With a clear understanding of modern construction requirements, Decent Shuttering Solution offers dependable shuttering systems that improve work efficiency, structural strength, and on-site safety. By following industry standards and quality practices, the company supports builders and contractors in completing projects on time and with precision.
           </p>
 
           <button className="bg-amber-300 hover:bg-amber-500 px-6 md:px-7 py-3 font-semibold transition">

@@ -99,9 +99,11 @@ export default function Contact() {
                     <div className="flex flex-col items-center md:items-start flex-1 md:pl-8">
                         <div className="flex items-center gap-2 mb-1">
                             <MapPin size={20} className="text-[#fbbc04]" />
-                            <h3 className="font-bold text-gray-900 text-lg">Office Adress</h3>
+                            <h3 className="font-bold text-gray-900 text-lg">Office Address</h3>
                         </div>
-                        <p className="text-gray-500 text-sm ml-7">Khata No. 334/344, VPO Chandu, Opp. Sultanpur National Park, Gurugram - 122505 (Hr.)</p>
+                        <a href="https://maps.app.goo.gl/cSJ1e6DKUdgYYtcD6" target="_blank" rel="noopener noreferrer" className="text-gray-500 text-sm ml-7 hover:text-[#fbbc04] transition-colors">
+                            Khata No. 334/344, VPO Chandu, Opp. Sultanpur National Park, Gurugram - 122505 (Hr.)
+                        </a>
                     </div>
                 </div>
 
@@ -110,7 +112,7 @@ export default function Contact() {
                     <h3 className="text-xl font-bold text-amber-400 mb-4 uppercase tracking-wide">Gurugram</h3>
                     <div className="w-full h-48 bg-gray-200 mb-6 relative">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.354219126699!2d76.8912160752827!3d28.468877275754558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d15a779d7dd63%3A0x619c711646cc0ea6!2sDecent%20Shuttering%20Solution!5e0!3m2!1sen!2sin!4v1773419570570!5m2!1sen!2sin"
+                            src="https://maps.google.com/maps?q=Decent%20Shuttering%20Solution,%20Chandu,%20Gurugram&t=&z=14&ie=UTF8&iwloc=&output=embed"
                             className="w-full h-80 border-0"
                             allowFullScreen=""
                             loading="lazy"
@@ -120,7 +122,17 @@ export default function Contact() {
                     <div className="text-sm text-gray-600 space-y-2 mt-30">
                         <p><strong className="text-gray-900">Phone:</strong> +919813302676, +918708278902</p>
                         <p><strong className="text-gray-900">Email Id:</strong> dssshuttering@gmail.com</p>
-                        <p><strong className="text-gray-900">Address:</strong> Khata No. 334/344, VPO Chandu, Opp. Sultanpur National Park, Gurugram - 122505 (Hr.)</p>
+                        <p>
+                            <strong className="text-gray-900">Address:</strong>{" "}
+                            <a
+                                href="https://maps.app.goo.gl/cSJ1e6DKUdgYYtcD6"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-amber-500 transition-colors"
+                            >
+                                Khata No. 334/344, VPO Chandu, Opp. Sultanpur National Park, Gurugram - 122505 (Hr.)
+                            </a>
+                        </p>
                     </div>
                 </div>
 
