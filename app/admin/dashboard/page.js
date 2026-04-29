@@ -96,7 +96,7 @@ export default function DashboardList() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 flex font-sans">
+        <div className="min-h-screen bg-slate-50 flex font-sans mt-30">
             {/* ... (Keep your Sidebar and Header exactly as they are) ... */}
 
             {/* Sidebar */}
@@ -116,6 +116,10 @@ export default function DashboardList() {
                     <Link href="/admin/add-blog" className="flex items-center gap-3 px-4 py-3 text-black rounded-lg hover:bg-slate-50 hover:text-indigo-600 transition-colors">
                         <PenTool size={20} />
                         <span className="font-medium">Write Blog</span>
+                    </Link>
+                    <Link href="/admin/gallery" className="flex items-center gap-3 px-4 py-3 text-black rounded-lg hover:bg-slate-200 hover:text-indigo-600 transition-colors">
+                        <PenTool size={20} />
+                        <span className="font-medium">Gellary</span>
                     </Link>
                 </nav>
 

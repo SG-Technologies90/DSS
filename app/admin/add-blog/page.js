@@ -110,7 +110,7 @@ export default function AddBlogDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex font-sans relative">
+    <div className="min-h-screen bg-slate-50 flex font-sans relative mt-30">
       {/* Mobile Overlay - EXTREMELY HIGH Z-INDEX */}
       {isSidebarOpen && (
         <div
@@ -153,6 +153,14 @@ export default function AddBlogDashboard() {
           >
             <PenTool size={20} />
             Write Blog
+          </Link>
+           <Link
+            href="/admin/gellary"
+            onClick={() => setIsSidebarOpen(false)}
+            className="flex items-center gap-3 px-4 py-3 bg-indigo-50 text-indigo-600 rounded-lg transition-colors font-medium"
+          >
+            <PenTool size={20} />
+            Gellary
           </Link>
         </nav>
 
