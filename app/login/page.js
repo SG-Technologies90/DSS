@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Mail, Lock, Eye, EyeOff, ArrowRight, ArrowLeft, ShieldCheck } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react"; // 1. Import signIn from NextAuth
+import { signIn } from "next-auth/react";
 
 export default function LoginPage() {
   const [view, setView] = useState("login"); // 'login' or 'forgot'
@@ -109,7 +109,7 @@ export default function LoginPage() {
                     value={email} // Bind value to state
                     onChange={(e) => setEmail(e.target.value)} // Update state on change
                     placeholder="admin@example.com"
-                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-lg focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 text-black border border-slate-300 rounded-lg focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
                     required
                   />
                 </div>

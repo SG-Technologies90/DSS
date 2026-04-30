@@ -55,7 +55,7 @@ export default function AddBlogDashboard() {
     }
   };
 
-  // SAVE BLOG
+  // SAVE BLOG TO BACKEND
   const handleSave = async (status) => {
     if (!title || !slug || !content) {
       alert("Please fill title, slug and content");
@@ -80,7 +80,8 @@ export default function AddBlogDashboard() {
     };
 
     try {
-      const res = await fetch("/api/blogs", {
+      const baseUrl = process.env.NEXT_PUBLIC_API_URL || "";
+      const res = await fetch(`${baseUrl}/api/blogs`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,8 +91,7 @@ export default function AddBlogDashboard() {
 
       if (res.ok) {
         alert(
-          `Blog ${
-            status === "Published" ? "published" : "saved"
+          `Blog ${status === "Published" ? "published" : "saved"
           } successfully`
         );
 
@@ -110,11 +110,11 @@ export default function AddBlogDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex font-sans relative">
+    <div className="min-h-screen bg-slate-50 flex font-sans relative mt-30">
       {/* Mobile Overlay - EXTREMELY HIGH Z-INDEX */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm lg:hidden transition-opacity"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998] lg:hidden transition-opacity"
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
@@ -153,6 +153,14 @@ export default function AddBlogDashboard() {
           >
             <PenTool size={20} />
             Write Blog
+          </Link>
+           <Link
+            href="/admin/gellary"
+            onClick={() => setIsSidebarOpen(false)}
+            className="flex items-center gap-3 px-4 py-3 bg-indigo-50 text-indigo-600 rounded-lg transition-colors font-medium"
+          >
+            <PenTool size={20} />
+            Gellary
           </Link>
         </nav>
 
@@ -195,10 +203,10 @@ export default function AddBlogDashboard() {
         {/* SCROLLABLE PAGE CONTENT */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-            
+
             {/* LEFT COLUMN: Editor */}
             <div className="lg:col-span-2 space-y-6">
-              
+
               <div className="bg-white p-4 sm:p-6 rounded-xl border border-slate-200 shadow-sm">
                 <input
                   type="text"
@@ -213,7 +221,7 @@ export default function AddBlogDashboard() {
               <div className="bg-white rounded-xl border border-slate-200 text-black overflow-hidden shadow-sm flex flex-col">
                 {editor && (
                   <div className="flex gap-2 border-b p-2 sm:p-3 bg-slate-50 flex-wrap sticky top-0 z-10">
-                    
+
                     <button
                       onClick={() => editor.chain().focus().toggleBold().run()}
                       className={`px-3 py-1.5 border rounded text-sm font-medium transition-colors ${editor.isActive('bold') ? 'bg-slate-800 text-white border-slate-800' : 'bg-white hover:bg-slate-100 text-slate-700'}`}
@@ -278,11 +286,23 @@ export default function AddBlogDashboard() {
                   onClick={() => editor && editor.chain().focus().run()}
                 />
               </div>
+
+              {/* BIG SUBMIT BUTTON AT THE BOTTOM OF THE EDITOR */}
+              <div className="pt-2">
+                <button
+                  onClick={() => handleSave("Published")}
+                  disabled={isLoading}
+                  className="w-full py-4 text-lg font-bold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 shadow-md transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                >
+                  {isLoading ? "Saving to Database..." : "Publish Blog Post"}
+                </button>
+              </div>
+
             </div>
 
             {/* RIGHT COLUMN: Settings */}
             <div className="space-y-6">
-              
+
               <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
                 <h3 className="text-sm text-black font-bold mb-4">
                   Featured Image
@@ -315,7 +335,7 @@ export default function AddBlogDashboard() {
                   )}
                 </div>
                 {featuredImage && (
-                  <button 
+                  <button
                     onClick={() => setFeaturedImage(null)}
                     className="mt-3 w-full text-sm text-red-600 hover:text-red-800 font-bold transition-colors"
                   >

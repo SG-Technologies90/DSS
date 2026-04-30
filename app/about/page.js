@@ -84,25 +84,27 @@ export default function About() {
             </h2>
 
             <p className="text-gray-600 mb-5 leading-relaxed text-sm md:text-base">
-             At Decent Shuttering Solution, we specialize in providing high-quality shuttering material, scaffolding solutions, 
-             and construction support systems for every range of building projects. 
-             Our objective is to assist contractors, builders, and developers with 
-             reliable shuttering solutions that ensure strength, accuracy, and durability 
-             in concrete structures.
+              At Decent Shuttering Solution, we specialize in providing
+              high-quality shuttering material, scaffolding solutions, and
+              construction support systems for every range of building projects.
+              Our objective is to assist contractors, builders, and developers
+              with reliable shuttering solutions that ensure strength, accuracy,
+              and durability in concrete structures.
             </p>
 
             <p className="text-gray-600 mb-5 leading-relaxed text-sm md:text-base">
-              We understand the technical and operational challenges of construction work. 
-              Our team works closely with clients to deliver cost-effective shuttering and 
-              scaffolding solutions, focusing on material quality, safety compliance, and 
-              timely availability. Every project is handled with attention to detail, 
+              We understand the technical and operational challenges of construction work.
+              Our team works closely with clients to deliver cost-effective shuttering
+              and scaffolding solutions, focusing on material quality, safety compliance,
+              and timely availability. Every project is handled with attention to detail,
               ensuring consistent performance at the construction site.
             </p>
 
             <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-              Through transparent working practices and a commitment to continuous improvement, 
-              Decent Shuttering Solution has earned the trust of professionals across the 
-              construction industry. Our solutions contribute to efficient project execution, 
+              Through transparent working practices and a commitment to continuous improvement,
+              Decent Shuttering Solution has earned the trust of professionals across the
+              construction industry.
+              Our solutions contribute to efficient project execution,
               reduced material wastage, and improved structural outcomes.
             </p>
 
@@ -121,11 +123,19 @@ export default function About() {
           </h2>
 
           <p className="text-gray-300 leading-relaxed mb-6 text-sm md:text-base">
-            “Our respected Chairman is in charge of our business. His vision, leadership, and knowledge of the industry have been the main reasons for our growth and success. He has worked in the shuttering and scaffolding business for years, so he knows a lot about how construction works, safety rules, and how infrastructure demands change over time.
+            Our respected Chairman is in charge of our business. His vision, leadership, and knowledge of the industry have been the main reasons for our growth and success. He has worked in the shuttering and scaffolding business for years, so he knows a lot about how construction works, safety rules, and how infrastructure demands change over time.
+          </p>
+
+          <p className="text-gray-300 leading-relaxed mb-6 text-sm md:text-base">
+            The company has always focused on providing high-quality shuttering and scaffolding materials that support robust, safe, and efficient construction procedures under his leadership. His dedication to new ideas, dependability, and making customers happy has helped the company create long-lasting connections in the construction and real estate industries.
+          </p>
+
+          <p className="text-gray-300 leading-relaxed mb-6 text-sm md:text-base">
+            He strongly believes that a good foundation is the first step in developing a strong structure. The company continues to help build modern infrastructure with accuracy and trust through advanced scaffolding systems and reliable shuttering solutions.
           </p>
 
           <p className="text-gray-300 leading-relaxed mb-8 text-sm md:text-base">
-            The company has always focused on providing high-quality shuttering and scaffolding materials that support robust, safe, and efficient construction procedures under his leadership. His dedication to new ideas, dependability, and making customers happy has helped the company create long-lasting connections in the construction and real estate industries.
+            The Chairman has a forward-looking strategy for the company that includes increasing its reach while keeping the highest standards of quality, safety, and service excellence on every project.
           </p>
 
           <p className="text-gray-300 leading-relaxed mb-8 text-sm md:text-base">
@@ -142,7 +152,8 @@ export default function About() {
 
         <div className="relative h-[300px] md:h-auto">
           <img
-            src="/chairman.jpeg"
+            src="/chairman.jpg"
+            alt="Rakesh Pannu - Chairman"
             className="w-full h-full object-cover"
             loading="lazy"
           />
@@ -208,11 +219,10 @@ export default function About() {
             </h2>
 
             <p className="text-gray-200 leading-relaxed text-sm md:text-base">
-              At Decent Shuttering Solution, our mission is to provide high-quality 
-              shuttering and formwork solutions that support safe, accurate, and 
-              efficient construction. We aim to assist builders and contractors with 
-              durable shuttering materials, timely service, and reliable construction 
-              support that meets industry standards and on-site requireme
+              At Decent Shuttering Solution, our mission is to provide high-quality shuttering
+              and formwork solutions that support safe, accurate, and efficient construction. We
+              aim to assist builders and contractors with durable shuttering materials, timely
+              service, and reliable construction support that meets industry standards and on-site requirements.
             </p>
           </div>
 
@@ -222,11 +232,10 @@ export default function About() {
             </h2>
 
             <p className="text-gray-200 leading-relaxed text-sm md:text-base">
-              Our vision is to become a trusted name in the shuttering and scaffolding 
-              industry by delivering consistent quality, maintaining safety standards, 
-              and adopting modern construction practices. We strive to support sustainable 
-              building development through innovative, cost-effective shuttering solutions 
-              that contribute to strong and long-lasting structures.
+              Our vision is to become a trusted name in the shuttering and scaffolding industry
+              by delivering consistent quality, maintaining safety standards, and adopting modern
+              construction practices. We strive to support sustainable building development through
+              innovative, cost-effective shuttering solutions that contribute to strong and long-lasting structures.
             </p>
           </div>
 

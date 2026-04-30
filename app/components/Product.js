@@ -46,10 +46,10 @@ const productList = [
     image: "/products/shuttering_plates.jpg",
   },
   {
-    title: "Span",
+    title: "Clamp",
     description:
-      "In construction, span refers to the distance between supports for beams or structures.",
-    image: "/products/span.jpg",
+      "Clamps are essential scaffolding accessories used to securely connect and fasten tubes together.",
+    image: "/products/clamp.jpg",
   },
   {
     title: "Adjustable Telescopic Props",
@@ -83,9 +83,9 @@ export default function Product() {
           <div
             key={index}
             className="group bg-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition duration-300">
-  
+
             <div className="relative h-52 overflow-hidden">
-              <Image src={product.image} alt={product.title} fill className="object-cover transition-transform duration-500 group-hover:scale-110"/>
+              <Image src={product.image} alt={product.title} fill className="object-cover transition-transform duration-500 group-hover:scale-110" />
             </div>
             <div className="p-5">
               <h3 className="font-semibold text-2xl mb-2 hover:text-yellow-500 transition duration-300 cursor-pointer">

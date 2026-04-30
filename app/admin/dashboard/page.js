@@ -19,6 +19,7 @@ import { useRouter } from "next/navigation";
 export default function DashboardList() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const router = useRouter();
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "";
 
     const [blogs, setBlogs] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -27,7 +28,7 @@ export default function DashboardList() {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const res = await fetch("/api/blogs");
+                const res = await fetch(`${baseUrl}/api/blogs`);
                 if (!res.ok) throw new Error("Failed to fetch blogs");
 
                 const data = await res.json();
@@ -51,7 +52,7 @@ export default function DashboardList() {
 
         try {
             // 2. Call the DELETE API we just created
-            const res = await fetch(`/api/blogs/${blogId}`, {
+            const res = await fetch(`${baseUrl}/api/blogs/${blogId}`, {
                 method: "DELETE",
             });
 
@@ -72,7 +73,7 @@ export default function DashboardList() {
     // Logout Handler
     const handleLogout = async () => {
         try {
-            const res = await fetch("/api/logout", {
+            const res = await fetch(`${baseUrl}/api/logout`, {
                 method: "POST",
             });
 
@@ -95,7 +96,7 @@ export default function DashboardList() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 flex font-sans">
+        <div className="min-h-screen bg-slate-50 flex font-sans mt-30">
             {/* ... (Keep your Sidebar and Header exactly as they are) ... */}
 
             {/* Sidebar */}
@@ -115,6 +116,10 @@ export default function DashboardList() {
                     <Link href="/admin/add-blog" className="flex items-center gap-3 px-4 py-3 text-black rounded-lg hover:bg-slate-50 hover:text-indigo-600 transition-colors">
                         <PenTool size={20} />
                         <span className="font-medium">Write Blog</span>
+                    </Link>
+                    <Link href="/admin/gallery" className="flex items-center gap-3 px-4 py-3 text-black rounded-lg hover:bg-slate-200 hover:text-indigo-600 transition-colors">
+                        <PenTool size={20} />
+                        <span className="font-medium">Gellary</span>
                     </Link>
                 </nav>
 
