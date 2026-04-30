@@ -102,7 +102,7 @@ export default function Footer() {
 
       {/* Bottom Copyright */}
       <div className="border-t border-gray-800 mt-10 pt-6 text-center text-sm text-gray-400">
-        2025 © DECENT SHUTTERING SOLUTION | All Rights Reserved
+        2022 © DECENT SHUTTERING SOLUTION | All Rights Reserved
       </div>
     </footer>
   );

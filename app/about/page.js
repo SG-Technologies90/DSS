@@ -84,19 +84,25 @@ export default function About() {
             </h2>
 
             <p className="text-gray-600 mb-5 leading-relaxed text-sm md:text-base">
-              At Decent Shuttering Solution, we specialize in providing
-              high-quality shuttering material, scaffolding solutions, and
-              construction support systems for every range of building projects.
+             At Decent Shuttering Solution, we specialize in providing high-quality shuttering material, scaffolding solutions, 
+             and construction support systems for every range of building projects. 
+             Our objective is to assist contractors, builders, and developers with 
+             reliable shuttering solutions that ensure strength, accuracy, and durability 
+             in concrete structures.
             </p>
 
             <p className="text-gray-600 mb-5 leading-relaxed text-sm md:text-base">
-              Our team works closely with clients to deliver cost-effective
-              shuttering and scaffolding solutions, focusing on material quality,
-              safety compliance, and timely availability.
+              We understand the technical and operational challenges of construction work. 
+              Our team works closely with clients to deliver cost-effective shuttering and 
+              scaffolding solutions, focusing on material quality, safety compliance, and 
+              timely availability. Every project is handled with attention to detail, 
+              ensuring consistent performance at the construction site.
             </p>
 
             <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-              Our solutions contribute to efficient project execution,
+              Through transparent working practices and a commitment to continuous improvement, 
+              Decent Shuttering Solution has earned the trust of professionals across the 
+              construction industry. Our solutions contribute to efficient project execution, 
               reduced material wastage, and improved structural outcomes.
             </p>
 
@@ -110,25 +116,24 @@ export default function About() {
 
         <div className="bg-black text-white px-6 md:px-16 py-14 md:py-20 flex flex-col justify-center">
 
-          <h2 className="text-yellow-400 text-2xl md:text-3xl font-bold mb-6">
+          <h2 className="text-yellow-400 text-2xl md:text-3xl font-bold mb-15 mt-0">
             FROM THE CHAIRMAN'S DESK
           </h2>
 
           <p className="text-gray-300 leading-relaxed mb-6 text-sm md:text-base">
-            The Team at <strong>DSS</strong> is led by
-            <strong> Mr. Kamal Khosla</strong>, the visionary chairman
-            of the company with extensive experience in construction
-            and scaffolding industry.
+            “Our respected Chairman is in charge of our business. His vision, leadership, and knowledge of the industry have been the main reasons for our growth and success. He has worked in the shuttering and scaffolding business for years, so he knows a lot about how construction works, safety rules, and how infrastructure demands change over time.
           </p>
 
           <p className="text-gray-300 leading-relaxed mb-8 text-sm md:text-base">
-            Over the years, DSS has established itself as a prominent
-            player in the scaffolding rental industry and has been
-            instrumental in many development projects.
+            The company has always focused on providing high-quality shuttering and scaffolding materials that support robust, safe, and efficient construction procedures under his leadership. His dedication to new ideas, dependability, and making customers happy has helped the company create long-lasting connections in the construction and real estate industries.
           </p>
 
+          <p className="text-gray-300 leading-relaxed mb-8 text-sm md:text-base">
+            He strongly believes that a good foundation is the first step in developing a strong structure. The company continues to help build modern infrastructure with accuracy and trust through advanced scaffolding systems and reliable shuttering solutions.
+            The Chairman has a forward-looking strategy for the company that includes increasing its reach while keeping the highest standards of quality, safety, and service excellence on every project.
+          </p>
           <h3 className="text-lg md:text-xl font-semibold">
-            KAMAL A KHOSLA
+            Rakesh Pannu
           </h3>
 
           <p className="text-gray-400 mt-2">Chairman</p>
@@ -137,7 +142,7 @@ export default function About() {
 
         <div className="relative h-[300px] md:h-auto">
           <img
-            src="/img_4.jpg"
+            src="/chairman.jpeg"
             className="w-full h-full object-cover"
             loading="lazy"
           />
@@ -203,9 +208,11 @@ export default function About() {
             </h2>
 
             <p className="text-gray-200 leading-relaxed text-sm md:text-base">
-              Our mission is to provide high-quality shuttering and
-              formwork solutions that support safe, accurate, and
-              efficient construction.
+              At Decent Shuttering Solution, our mission is to provide high-quality 
+              shuttering and formwork solutions that support safe, accurate, and 
+              efficient construction. We aim to assist builders and contractors with 
+              durable shuttering materials, timely service, and reliable construction 
+              support that meets industry standards and on-site requireme
             </p>
           </div>
 
@@ -215,9 +222,11 @@ export default function About() {
             </h2>
 
             <p className="text-gray-200 leading-relaxed text-sm md:text-base">
-              Our vision is to become a trusted name in the shuttering
-              and scaffolding industry by delivering consistent quality
-              and adopting modern construction practices.
+              Our vision is to become a trusted name in the shuttering and scaffolding 
+              industry by delivering consistent quality, maintaining safety standards, 
+              and adopting modern construction practices. We strive to support sustainable 
+              building development through innovative, cost-effective shuttering solutions 
+              that contribute to strong and long-lasting structures.
             </p>
           </div>
 

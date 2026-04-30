@@ -28,9 +28,9 @@ export default function Hero() {
           <Image
             src="/DSS Logo.png"
             alt="DSS Logo"
-            width={120}
-            height={120}
-            className="mx-auto w-16 sm:w-20 md:w-24 lg:w-28 h-auto"
+            width={150}
+            height={150}
+            className="mx-auto w-50 sm:w-30 md:w-34 lg:w-50 h-auto"
           />
         </div>
 
