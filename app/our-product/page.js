@@ -64,7 +64,7 @@ export const productList = [
     title: "Clamp",
     slug: "clamp",
     description: "Clamps are essential scaffolding accessories used to securely connect and fasten tubes together.",
-    image: "/products/clamp.png",
+    image: "/products/clamp.jpg",
     loading: "lazy",
   },
   {

@@ -73,11 +73,13 @@ export default function Navbar() {
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-black/80 backdrop-blur-md shadow-lg" : "bg-black"
           }`}
       >
+
         {/* TOP INFO BAR */}
         <div
-          className={`w-full bg-amber-500 text-black py-2 px-6 text-sm flex justify-center sm:justify-end items-center font-medium transition-all duration-300 ${isScrolled ? "hidden" : "flex"
+          className={`w-full bg-yellow-500 text-black py-1 px-6 text-sm flex justify-center sm:justify-end items-center font-medium transition-all duration-300 ${isScrolled ? "hidden" : "flex"
             }`}
         >
+          <span className="mr-160 font-bold">Scaffolding & Shuttering Material on hire in Delhi NCR</span>
           <div className="flex gap-4 sm:gap-6 items-center">
             <a href="tel:+919813302676" className="flex items-center gap-2 hover:text-white transition">
               <span>📞</span> +91 9813302676, +91 8708278902
@@ -114,10 +116,10 @@ export default function Navbar() {
               onClick={() => setIsQueryOpen(true)}
               className="group flex items-center relative"
             >
-              <div className="bg-amber-600 text-white w-10 h-10 flex items-center justify-center rounded-full z-10 shadow-md transition-transform group-hover:scale-105">
+              <div className="bg-yellow-600 text-white w-10 h-10 flex items-center justify-center rounded-full z-10 shadow-md transition-transform group-hover:scale-105">
                 <Mail size={18} />
               </div>
-              <div className="bg-amber-500 text-black h-9 flex items-center pr-5 pl-7 -ml-5 rounded-r-md font-bold shadow-sm transition-colors group-hover:bg-amber-400">
+              <div className="bg-yellow-500 text-black h-9 flex items-center pr-5 pl-7 -ml-5 rounded-r-md font-bold shadow-sm transition-colors group-hover:bg-amber-400">
                 Query Now
               </div>
             </button>

@@ -152,7 +152,7 @@ export default function About() {
 
         <div className="relative h-[300px] md:h-auto">
           <img
-            src="/chairman.jpg"
+            src="/chairman.jpeg"
             alt="Rakesh Pannu - Chairman"
             className="w-full h-full object-cover"
             loading="lazy"
