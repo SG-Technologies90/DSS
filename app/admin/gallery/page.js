@@ -46,9 +46,9 @@ export default function AdminGallery() {
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
-            // Limit file size to ~3MB to prevent 'Payload Too Large' errors
-            if (file.size > 3 * 1024 * 1024) {
-                alert("File size exceeds 3MB limit. Please select a smaller image.");
+            // Limit file size to ~5MB to prevent 'Payload Too Large' errors
+            if (file.size > 5 * 1024 * 1024) {
+                alert("File size exceeds 5MB limit. Please select a smaller image.");
                 e.target.value = ""; // Reset input
                 return;
             }

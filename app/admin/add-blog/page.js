@@ -155,7 +155,7 @@ export default function AddBlogDashboard() {
             Write Blog
           </Link>
            <Link
-            href="/admin/gellary"
+            href="/admin/gallery"
             onClick={() => setIsSidebarOpen(false)}
             className="flex items-center gap-3 px-4 py-3 bg-indigo-50 text-indigo-600 rounded-lg transition-colors font-medium"
           >
