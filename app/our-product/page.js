@@ -126,7 +126,13 @@ export default function Product() {
               className="group bg-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition duration-300 flex flex-col"
             >
               <div className="relative h-52 overflow-hidden">
-                <Image src={product.image} alt={product.title} fill className="object-cover transition-transform duration-500 group-hover:scale-110" />
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
               </div>
               <div className="p-5 flex flex-col flex-1">
                 {/* 2. Wrap Title in Link */}

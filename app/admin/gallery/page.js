@@ -96,7 +96,7 @@ export default function AdminGallery() {
     const handleDelete = async (id) => {
         if (!confirm("Are you sure you want to delete this image?")) return;
         try {
-            const res = await fetch(`${baseUrl}/api/gallery/${id}`, { method: "DELETE" });
+            const res = await fetch(`${baseUrl}/api/gallery?id=${id}`, { method: "DELETE" });
 
             const text = await res.text();
             let data;

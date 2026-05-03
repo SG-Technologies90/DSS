@@ -44,6 +44,7 @@ export default function StrengthSection() {
               src="/strength.jpg"
               alt="strength"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition-transform duration-700"
               style={{
                 transform: hover ? "scale(1.15)" : "scale(1)",

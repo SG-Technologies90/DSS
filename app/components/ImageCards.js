@@ -33,6 +33,7 @@ export default function ImageCards() {
                 src={card.img}
                 alt="card image"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover transform transition duration-500 group-hover:scale-110"
               />
             </div>

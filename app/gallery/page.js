@@ -7,26 +7,11 @@ export const metadata = {
   },
 };
 
-async function getGalleryImages() {
-  try {
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/gallery`, { cache: 'no-store' });
-    if (!res.ok) return null;
-    const json = await res.json();
-    return json.data;
-  } catch (error) {
-    console.error("Error fetching gallery:", error);
-    return null;
-  }
-}
 
 export default async function Gallery() {
-  const fetchedImages = await getGalleryImages();
 
   // Fallback to static images if DB fetch fails or no images have been uploaded yet
-  const images = fetchedImages && fetchedImages.length > 0
-    ? fetchedImages.map((img) => img.imageUrl)
-    : [
+  const images = [
       "/img_1.jpg",
       "/img_10.jpg",
       "/img_3.jpg",
